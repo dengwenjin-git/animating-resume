@@ -34,16 +34,25 @@
 }
 /* 白色背景太单调了，我们来点背景 */
 html {
-  color: rgb(222,222,222); background: rgb(0,43,54);
+  color: rgb(222,222,222);
+  background: rgb(0,43,54);
 }
 /* 文字离边框太近了 */
 .styleEditor {
-  padding: .5em;
+  padding: 1em;
   border: 1px solid;
-  margin: .5em;
+  margin: 1em;
   overflow: auto;
-  width: 45vw; height: 90vh;
+  width: 45vw; height: 96vh;
+  background: #303030;
 }
+
+
+.styleEditor {
+  transform: translateX(115%);
+  position: absolute;
+}
+
 /* 代码高亮 */
 .token.selector{ color: rgb(133,153,0); }
 .token.property{ color: rgb(187,137,0); }
@@ -51,24 +60,22 @@ html {
 .token.function{ color: rgb(42,161,152); }
 
 /* 加点 3D 效果呗 */
-html{
-  perspective: 1000px;
+pre:not(#style-text) {
+  transform: rotateY(5deg);
 }
-.styleEditor {
-  position: fixed; left: 0; top: 0;
-  -webkit-transition: none;
-  transition: none;
-  -webkit-transform: rotateY(10deg) translateZ(-100px) ;
-          transform: rotateY(10deg) translateZ(-100px) ;
+/* 加点鼠标覆盖背影 */
+pre:hover{
+   box-shadow: 0px 0px 30px 5px rgba(255,255,255,0.4);
 }
+
 
 /* 接下来我给自己准备一个编辑器 */
 .resumeEditor{
-  position: fixed; right: 0; top: 0;
-  padding: .5em;  margin: .5em;
-  width: 48vw; height: 90vh;
+  position: fixed; left: 0; top: 0;
+  padding: 1em;  margin: 1em;
+  width: 48vw; height: 96vh;
   border: 1px solid;
-  background: white; color: #222;
+  background: #2b2b2b; color: white;
   overflow: auto;
 }
 /* 好了，我开始写简历了 */
@@ -107,10 +114,18 @@ html{
   content: counters(section, ".") " ";
   margin-right: .5em;
 }
-.resumeEditor blockquote {
+.resumeEditor ol li li::before {
+  list-style: none;
+  content: '•';
   margin: 1em;
   padding: .5em;
+  font-size: 12px;
+}
+.resumeEditor blockquote {
+  margin: .5em;
+  padding: .5em;
   background: #ddd;
+  color: black;
 }
 `],
         currentMarkdown: '',
@@ -127,16 +142,30 @@ java开发工程师，喜欢钻研技术。
 * 熟悉 Dubbo、zookeeper、Gradle搭建微服务
 * 熟悉 SpringCloud架构和Linux常用操作
 * 熟悉 Mysql、Postgresql数据库、达梦数据库、Redis和 MongoDB的使用
-* 熟练使用 Ureport 2和 Acrobat DC 、帆软进行报表设计展示
+* 熟练使用 Ureport2和 AcrobatDC 、帆软进行报表设计展示
 * 熟悉消息组件 rabbitmq，kafka的使用
 * 使用 vue，element-ui 做前端开发
 
 工作经历
-------
+--------
 
-1. 中科绿智（重庆）科技有限公司
-2. 重庆千变科技有限公司
-3. 重庆百木科技有限公司
+1. 中科绿智（重庆）科技有限公司<br/>
+  1. 参与项目需求讨论，提出可行性方案。<br/>
+  2. 负责系统架构设计和框架搭建。<br/>
+  3. 负责数据库表结构设计。<br/>
+  4. 完成核心代码开发。<br/>
+  5. 编写项目设计文档、开发文档、部署文档。<br/>
+  6. 解决开发过程中遇到的技术难题。
+2. 重庆千变科技有限公司<br/>
+  1. 参与各个区域建筑工地设备交互及流程接口编写。<br/>
+  2. 对数字建造、智慧社区进行需求分析，进行相应设计。<br/>
+  3. 参与市建委及安管项目需求调研及相应系统开发，重构及新增重庆市建设工程安全管理网相应系统。<br/>
+  4. 维护已有项目并进行需求新增及代码优化。<br/>
+3. 重庆集元科技有限公司<br/>
+  1. 参照硬件功能搭建智慧停车平台。<br/>
+  2. 进行需求分析，实现平台与硬件之间的交互。<br/>
+  3. 根据设备的电量、驶入、驶离、报警信息实现平台对硬件功能的测试。<br/>
+  4. 编写PC端和手机端与用户、停车场进行信息交互，智慧停车、支付等功能。
 
 链接
 ----
