@@ -155,6 +155,7 @@ java开发工程师，喜欢钻研技术。
 链接
 ----
 
+* [GitHub](https://github.com/dengwenjin-git/animating-resume)
 * [我的博客](http://www.dwj.show)
 
 > 编程是一种单调的生活,因此程序员比普通人需要更多的关怀，更多的友情。总有人间一两风，填我十万八千梦！
