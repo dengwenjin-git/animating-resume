@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <StyleEditor ref="styleEditor" :code="currentStyle"></StyleEditor>
+    <StyleEditor ref="styleEditor"  :code="currentStyle"></StyleEditor>
     <ResumeEditor ref="resumeEditor" :markdown="currentMarkdown" :enableHtml="enableHtml"></ResumeEditor>
   </div>
 </template>
@@ -18,7 +18,8 @@
     },
     data() {
       return {
-        interval: 40,
+        styleInterval: 15,
+        resumeInterval: 10,
         currentStyle: '',
         enableHtml: false,
         fullStyle: [
@@ -121,6 +122,13 @@ pre:hover{
   padding: .5em;
   font-size: 12px;
 }
+.resumeEditor a {
+  margin-left: .5em;
+  margin-bottom: .5em;
+  font-size: 20px;
+  color: #4492db;
+  letter-spacing: 3px;
+}
 .resumeEditor blockquote {
   margin: .5em;
   padding: .5em;
@@ -170,10 +178,12 @@ java开发工程师，喜欢钻研技术。
 链接
 ----
 
-* [GitHub](https://github.com/dengwenjin-git/animating-resume)
-* [我的博客](http://www.dwj.show)
+> <a>- [GitHub](https://github.com/dengwenjin-git/animating-resume)</a>
 
-> 编程是一种单调的生活，因此程序员比普通人需要更多的关怀，更多的友情。总有人间一两风，填我十万八千梦！
+> <a>- [我的博客](http://www.dwj.show)</a>
+
+
+> <br/>编程是一种单调的生活，因此程序员比普通人需要更多的关怀，更多的友情。总有人间一两风，填我十万八千梦！
 
 `
       }
@@ -198,7 +208,7 @@ java开发工程师，喜欢钻研技术。
       },
       progressivelyShowStyle(n) {
         return new Promise((resolve, reject) => {
-          let interval = this.interval
+          let interval = this.styleInterval
           let showStyle = (async function () {
             let style = this.fullStyle[n]
             if (!style) { return }
@@ -225,7 +235,7 @@ java开发工程师，喜欢钻研技术。
       progressivelyShowResume() {
         return new Promise((resolve, reject) => {
           let length = this.fullMarkdown.length
-          let interval = this.interval
+          let interval = this.resumeInterval
           let showResume = () => {
             if (this.currentMarkdown.length < length) {
               this.currentMarkdown = this.fullMarkdown.substring(0, this.currentMarkdown.length + 1)
